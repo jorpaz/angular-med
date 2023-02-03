@@ -21,6 +21,7 @@ export class ProductComponent {
     description: ''
   };
   @Output() addedProduct = new EventEmitter<Product>();
+  @Output() showProduct = new EventEmitter<string>();
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() { }
@@ -29,4 +30,7 @@ export class ProductComponent {
     this.addedProduct.emit(this.product);
   }
 
+  onShowDetail(){
+    this.showProduct.emit(this.product.id);
+  }
 }
