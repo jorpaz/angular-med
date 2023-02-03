@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-import { BehaviorSubject } from 'rxjs'
-
-import { Product } from '../models/product.model'
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,16 +15,16 @@ export class StoreService {
 
   constructor() { }
 
-  addProduct(product: Product){
+  addProduct(product: Product) {
     this.myShoppingCart.push(product);
     this.myCart.next(this.myShoppingCart);
   }
 
-  getShoppingCart(){
+  getShoppingCart() {
     return this.myShoppingCart;
   }
 
-  getTotal(){
-    return this.myShoppingCart.reduce((sum, item) => sum + item.price, 0)
+  getTotal() {
+    return this.myShoppingCart.reduce((sum, item) => sum + item.price, 0);
   }
 }
